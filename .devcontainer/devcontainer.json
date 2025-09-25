@@ -1,8 +1,13 @@
 {
-  "name": "Python Chatbot Dev",
-  "features": {
-    "ghcr.io/devcontainers/features/python:1": {
-      "version": "3.10"
+  "name": "Python + Streamlit",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "features": {},
+  "postCreateCommand": "pip install -r requirements.txt",
+  "forwardPorts": [8080],
+  "portsAttributes": {
+    "8080": {
+      "label": "Streamlit",
+      "onAutoForward": "notify"
     }
   },
   "customizations": {
@@ -11,7 +16,12 @@
         "ms-python.python",
         "ms-python.vscode-pylance",
         "ms-toolsai.jupyter"
-      ]
+      ],
+      "settings": {
+        "python.analysis.typeCheckingMode": "basic",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
     }
-  }
+  },
+  "remoteUser": "vscode"
 }
